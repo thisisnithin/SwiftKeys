@@ -7,12 +7,10 @@ const Home = () => {
   const { user } = useWunderGraph()
 
   return (
-    <main className='flex h-screen w-full justify-center overflow-hidden'>
-      <div className='container relative h-full w-full'>
-        <Navbar />
-        {!user && <Hero />}
-        {user && <Test />}
-      </div>
+    <main className='container relative mx-auto flex h-screen flex-col overflow-hidden px-4'>
+      <Navbar />
+      {!user && <Hero />}
+      {user && <Test />}
     </main>
   )
 }

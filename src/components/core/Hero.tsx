@@ -6,18 +6,15 @@ const Hero = () => {
   const { login } = useWunderGraph()
 
   return (
-    <div
-      id='hero'
-      className='flex h-full w-full flex-col items-center justify-center gap-y-4 '
-    >
-      <h1 className='text-center text-7xl font-bold text-white'>
+    <div className='flex flex-1 flex-col items-center justify-center'>
+      <h1 className='-mt-24 text-center text-5xl font-bold leading-[55px] text-white lg:text-7xl'>
         Think you can type fast?
       </h1>
 
       <Button
         size='large'
         leftIcon={<FaGoogle />}
-        className='mt-4'
+        className='mt-12'
         onClick={() => {
           login(AuthProvider.google)
         }}

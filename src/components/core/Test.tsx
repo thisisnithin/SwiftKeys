@@ -129,9 +129,9 @@ const Test = () => {
   }
 
   return (
-    <div className='flex h-full w-full flex-col items-center justify-center gap-y-4'>
+    <div className='flex h-full w-full flex-col items-center justify-center gap-y-4 '>
       {/* Your area */}
-      <div className='mt-12 flex w-full flex-wrap items-start text-3xl'>
+      <div className='flex w-full flex-wrap items-start text-3xl'>
         {snippet.map((word, wi) => (
           <div
             className={cx('my-1 mr-1 rounded-sm px-1.5 py-px', {
