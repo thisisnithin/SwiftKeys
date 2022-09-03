@@ -1,0 +1,19 @@
+mutation (
+  $accuracy: Float!
+  $wpm: Int!
+  $correct: Int!
+  $wrong: Int!
+  $email: String! @fromClaim(name: EMAIL)
+) {
+  db_createOneResults(
+    data: {
+      accuracy: $accuracy
+      wpm: $wpm
+      correct: $correct
+      wrong: $wrong
+      User: { connect: { email: $email } }
+    }
+  ) {
+    id
+  }
+}

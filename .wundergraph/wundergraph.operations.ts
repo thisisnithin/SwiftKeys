@@ -27,13 +27,6 @@ export default configureWunderGraphOperations<OperationsConfiguration>({
     subscriptions: config => ({
       ...config,
     }),
-    custom: {
-      ProtectedWeather: config => ({
-        ...config,
-        authentication: {
-          required: true,
-        },
-      }),
-    },
+    custom: {},
   },
 })

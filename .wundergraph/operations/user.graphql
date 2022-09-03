@@ -1,0 +1,14 @@
+mutation (
+  $id: String!
+  $email: String!
+  $name: String!
+  $now: DateTime! @injectCurrentDateTime
+) @internalOperation {
+  db_upsertOneUser(
+    where: { email: $email }
+    update: { lastLogin: { set: $now } }
+    create: { lastLogin: $now, email: $email, name: $name, id: $id }
+  ) {
+    id
+  }
+}

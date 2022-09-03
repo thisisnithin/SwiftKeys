@@ -10,27 +10,30 @@ export default configureWunderGraphServer<
   WebhooksConfig
 >(() => ({
   hooks: {
-    queries: {
-      FakeWeather: {
-        mockResolve: async (hook: HookRequest) => {
-          return {
-            data: {
-              getCityByName: {
-                id: '1',
-                name: 'Berlin',
-                weather: {
-                  summary: {
-                    title: 'Weather for Berlin',
-                    description: '0°, cloudy',
-                  },
-                },
-              },
-            },
-          }
-        },
+    queries: {},
+    mutations: {},
+    authentication: {
+      postAuthentication: async ({ internalClient, user, log }) => {
+        if (!user || !user.name || !user.email || !user.userId) {
+          log.error('User not found or incomplete')
+          return
+        }
+        log.info('User authenticated: ', user.email)
+        const result = await internalClient.mutations.user({
+          input: {
+            email: user.email,
+            name: user.name,
+            id: user.userId,
+          },
+        })
+        if (result.errors) {
+          log.error('Error upserting user: ', result.errors)
+        }
+        if (result.data) {
+          log.info('User upserted: ', result.data.db_upsertOneUser?.id)
+        }
       },
     },
-    mutations: {},
   },
   graphqlServers: [
     {
