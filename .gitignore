@@ -9,8 +9,8 @@
 .pnp.js
 
 # WunderGraph build output
-.wundergraph/generated
-src/components/generated
+*/**/generated
+generated
 
 # testing
 /coverage

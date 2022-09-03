@@ -32,17 +32,17 @@ const Button = ({
 }: ButtonProperties) => (
   <button
     className={cx(
-      'group flex h-min max-w-max cursor-pointer items-center justify-center rounded-sm border border-transparent font-main font-semibold transition-all',
+      'group flex h-min max-w-max cursor-pointer items-center justify-center rounded-sm border border-transparent font-main font-semibold transition-all active:scale-95',
 
       // solid color schemes
       {
-        'bg-white text-gray-800 hover:bg-gray-100 active:scale-95':
+        'bg-white text-gray-800 hover:bg-gray-100':
           appearance === 'solid' && colorScheme === 'white',
       },
 
       // outline color schemes
       {
-        'border-gray-300 bg-transparent text-white hover:bg-gray-100 hover:text-gray-800 active:scale-95':
+        'border-gray-300 bg-transparent text-white hover:bg-gray-100 hover:text-gray-800':
           appearance === 'outline' && colorScheme === 'white',
       },
 

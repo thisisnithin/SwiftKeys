@@ -10,6 +10,7 @@ model Results {
   accuracy  Decimal
   correct   Int
   wrong     Int
+  time      Int      @default(30)
   userId    String?
   User      User?    @relation(fields: [userId], references: [id])
 }

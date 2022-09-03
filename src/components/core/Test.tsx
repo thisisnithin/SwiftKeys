@@ -34,6 +34,7 @@ const Results = ({
         correct: history.filter(h => h.correct).length,
         wpm: Math.round((history.filter(h => h.correct).length / timer) * 60),
         wrong: history.filter(h => !h.correct).length,
+        time: timer,
       },
     })
   }, [history, mutate, timer])
