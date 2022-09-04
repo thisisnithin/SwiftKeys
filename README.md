@@ -1,27 +1,22 @@
-# WunderGraph Next.js Starter
+<div align="center">
+  <img alt="logo" width="100%" src="assets/logo.png"/>
+</div>
 
-This example demonstrates how to use WunderGraph with Next.js & Postgres. We are going to make your database accessible through JSON-RPC to your Next.js app.
+## Introduction
+
+An app to test out your typing speed, save your progress and get statistics against them.
 
 ## Getting Started
 
-Install the dependencies and run the complete example in one command:
+Install the dependencies and run the complete project (nextjs, wundergraph, go server, database) using the below command:
 
 ```shell
-npm install && npm start
+yarn install && yarn project
 ```
 
-After a while, a new browser tab will and you can start exploring the application. If no tab is open, navigate to [http://localhost:3000](http://localhost:3000).
+## What's inside?
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-Read the [Docs](https://wundergraph.com/docs).
-
-## Got Questions?
-
-Join us on [Discord](https://wundergraph.com/discord)!
+`nextjs` - Frontend framework used to build what you see <br />
+`server` - Go server to generate random words and sentences <br />
+`wundergraph` - GraphQL api platform <br />
+`database` - Postgres database
