@@ -72,7 +72,7 @@ const Stats = () => {
   return (
     <div className='container relative mx-auto h-full w-full overflow-x-hidden px-4 pb-12'>
       <Navbar />
-      <div className='flex flex-col rounded-lg bg-zinc-700 px-6 py-8 lg:flex-row lg:items-center'>
+      <div className='flex flex-col gap-12 rounded-lg bg-zinc-700 px-6 py-8 xl:flex-row xl:items-center'>
         <div className='flex items-center gap-x-6'>
           <Image
             src={(user as any).avatarUrl}
@@ -92,9 +92,66 @@ const Stats = () => {
             </p>
           </div>
         </div>
-        <div className='mt-12 grid w-full flex-1 grid-cols-2 items-center justify-between gap-y-8 lg:mt-0 lg:flex lg:px-32'>
-          <div className='flex flex-col gap-y-2'>
-            <small className='text-zinc-300'>15 seconds</small>
+        <div className='grid w-full flex-1 grid-cols-2 items-center justify-between gap-y-8 gap-x-4 xl:flex'>
+          <div className='col-span-2 h-36 w-full rounded-lg bg-zinc-600 p-4 xl:w-64'>
+            <table className='table w-full table-fixed text-left'>
+              <thead>
+                <tr>
+                  <th className='text-sm font-normal text-zinc-300'>
+                    highest wpm
+                  </th>
+                  <th className='text-sm font-normal text-zinc-300'>
+                    highest accuracy
+                  </th>
+                </tr>
+              </thead>
+              <tbody className='font-main text-lg'>
+                <tr>
+                  <td>
+                    {(result.status === 'ok' &&
+                      result.data.db_aggregateResults._max?.wpm) ??
+                      0}
+                  </td>
+                  <td>
+                    {(result.status === 'ok' &&
+                      result.data.db_aggregateResults._max?.accuracy) ??
+                      0}
+                    %
+                  </td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th className='text-sm font-normal text-zinc-300'>avg wpm</th>
+                  <th className='text-sm font-normal text-zinc-300'>
+                    avg accuracy
+                  </th>
+                </tr>
+              </thead>
+              <tbody className='font-main text-lg'>
+                <tr>
+                  <td>
+                    {(result.status === 'ok' &&
+                      result.data.db_aggregateResults._avg?.wpm) ??
+                      0}
+                  </td>
+                  <td>
+                    {(result.status === 'ok' &&
+                      (result.data.db_aggregateResults._avg?.accuracy).toFixed(
+                        2
+                      )) ??
+                      0}
+                    %
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {/* Other stats */}
+          <div className='flex h-36 flex-1 flex-col gap-y-2 rounded-lg bg-zinc-600 p-4'>
+            <small className='text-zinc-300'>
+              15 seconds <br /> {stats.fifteen?._count._all ?? 0} tests
+            </small>
             <h2 className='text-lg text-white'>
               {stats.fifteen?._avg?.wpm ?? '-'}
             </h2>
@@ -103,8 +160,10 @@ const Stats = () => {
               {stats.fifteen?._avg?.accuracy && '%'}
             </h2>
           </div>
-          <div className='flex flex-col gap-y-2'>
-            <small className='text-zinc-300'>30 seconds</small>
+          <div className='flex h-36 flex-1 flex-col gap-y-2 rounded-lg bg-zinc-600 p-4'>
+            <small className='text-zinc-300'>
+              30 seconds <br /> {stats.thirty?._count._all ?? 0} tests
+            </small>
             <h2 className='text-lg text-white'>
               {stats.thirty?._avg?.wpm ?? '-'}
             </h2>
@@ -113,8 +172,10 @@ const Stats = () => {
               {stats.thirty?._avg?.accuracy && '%'}
             </h2>
           </div>
-          <div className='flex flex-col gap-y-2'>
-            <small className='text-zinc-300'>45 seconds</small>
+          <div className='flex h-36 flex-1 flex-col gap-y-2 rounded-lg bg-zinc-600 p-4'>
+            <small className='text-zinc-300'>
+              45 seconds <br /> {stats.fortyFive?._count._all ?? 0} tests
+            </small>
             <h2 className='text-lg text-white'>
               {stats.fortyFive?._avg?.wpm ?? '-'}
             </h2>
@@ -123,8 +184,10 @@ const Stats = () => {
               {stats.fortyFive?._avg?.accuracy && '%'}
             </h2>
           </div>
-          <div className='flex flex-col gap-y-2'>
-            <small className='text-zinc-300'>60 seconds</small>
+          <div className='flex h-36 flex-1 flex-col gap-y-2 rounded-lg bg-zinc-600 p-4'>
+            <small className='text-zinc-300'>
+              60 seconds <br /> {stats.sixty?._count._all ?? 0} tests
+            </small>
             <h2 className='text-lg text-white'>
               {stats.sixty?._avg?.wpm ?? '-'}
             </h2>
@@ -137,7 +200,7 @@ const Stats = () => {
       </div>
       {/* History */}
       <div className='overflow-x-auto'>
-        <table className='mt-12 w-full table-auto text-left text-xs md:text-sm lg:text-base'>
+        <table className='mt-12 w-full table-auto text-left text-xs md:text-sm xl:text-base'>
           <thead className='bg-zinc-800 uppercase text-zinc-400'>
             <tr>
               <th scope='col' className='py-3 px-6'>

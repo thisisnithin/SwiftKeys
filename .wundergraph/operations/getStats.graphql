@@ -8,6 +8,12 @@ query ($userId: String! @fromClaim(name: USERID)) {
       wpm
       accuracy
     }
+  }
+  db_aggregateResults(where: { userId: { equals: $userId } }) {
+    _avg {
+      wpm
+      accuracy
+    }
     _max {
       wpm
       accuracy
