@@ -18,7 +18,7 @@ const Navbar = () => {
         </a>
       </Link>
       {user && (
-        <div className='flex items-center gap-x-6'>
+        <div className='flex items-center gap-x-2 lg:gap-x-6'>
           {asPath !== '/stats' && (
             <Button
               appearance='none'

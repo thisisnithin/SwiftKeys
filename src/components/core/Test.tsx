@@ -40,23 +40,23 @@ const Results = ({
   }, [history, mutate, timer])
 
   return (
-    <div className='flex h-full w-full flex-col items-center justify-center gap-y-12'>
+    <div className='flex h-full w-full flex-col items-center justify-center gap-y-12 overflow-x-hidden px-4'>
       <div className='flex flex-col gap-y-6 border px-8 pt-6 pb-12'>
-        <h1 className='-mt-12 w-max bg-zinc-900 px-4 text-4xl font-bold'>
+        <h1 className='mx-auto -mt-10 w-max bg-zinc-900 px-4 text-2xl font-bold lg:m-0 lg:-mt-12 lg:text-4xl'>
           Results
         </h1>
-        <div className='flex items-center gap-x-24'>
+        <div className='flex items-center gap-x-12 lg:gap-x-24'>
           {/* WPM */}
           <div className='flex flex-col items-start gap-y-2'>
-            <p className='text-2xl font-bold text-gray-300'>wpm</p>
-            <h2 className='text-7xl font-bold'>
+            <p className='text-lg font-bold text-gray-300 lg:text-2xl'>wpm</p>
+            <h2 className='text-4xl font-bold lg:text-7xl'>
               {Math.round((history.filter(h => h.correct).length / timer) * 60)}
             </h2>
           </div>
           {/* Accuracy */}
           <div className='flex flex-col items-start gap-y-2'>
-            <p className='text-2xl font-bold text-gray-300'>acc</p>
-            <h2 className='text-7xl font-bold'>
+            <p className='text-lg font-bold text-gray-300 lg:text-2xl'>acc</p>
+            <h2 className='text-4xl font-bold lg:text-7xl'>
               {Math.round(
                 (history.filter(h => h.correct).length / history.length) * 100
               ) || 0}
@@ -65,15 +65,17 @@ const Results = ({
           </div>
           {/* Correct words */}
           <div className='flex flex-col items-start gap-y-2'>
-            <p className='text-2xl font-bold text-gray-300'>correct</p>
-            <h2 className='text-7xl font-bold'>
+            <p className='text-lg font-bold text-gray-300 lg:text-2xl'>
+              correct
+            </p>
+            <h2 className='text-4xl font-bold lg:text-7xl'>
               {history.filter(h => h.correct).length}
             </h2>
           </div>
           {/* Wrong words */}
           <div className='flex flex-col items-start gap-y-2'>
-            <p className='text-2xl font-bold text-gray-300'>wrong</p>
-            <h2 className='text-7xl font-bold'>
+            <p className='text-lg font-bold text-gray-300 lg:text-2xl'>wrong</p>
+            <h2 className='text-4xl font-bold lg:text-7xl'>
               {history.filter(h => !h.correct).length}
             </h2>
           </div>
