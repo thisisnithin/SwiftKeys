@@ -27,6 +27,13 @@ export default configureWunderGraphOperations<OperationsConfiguration>({
     subscriptions: config => ({
       ...config,
     }),
-    custom: {},
+    custom: {
+      getStats: config => ({
+        ...config,
+        authentication: {
+          required: true,
+        },
+      }),
+    },
   },
 })

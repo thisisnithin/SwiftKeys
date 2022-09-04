@@ -8,6 +8,10 @@ module.exports = {
     return config
   },
 
+  images: {
+    domains: ['lh3.googleusercontent.com'],
+  },
+
   eslint: {
     dirs: ['src'],
   },
