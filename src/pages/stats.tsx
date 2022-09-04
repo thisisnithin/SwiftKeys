@@ -137,7 +137,7 @@ const Stats = () => {
                   </td>
                   <td>
                     {(result.status === 'ok' &&
-                      (result.data.db_aggregateResults._avg?.accuracy).toFixed(
+                      result.data.db_aggregateResults._avg?.accuracy?.toFixed(
                         2
                       )) ??
                       0}

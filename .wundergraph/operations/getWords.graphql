@@ -1,0 +1,3 @@
+query ($count: Int!) {
+  wordServer_getWords(count: $count)
+}

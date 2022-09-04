@@ -19,9 +19,20 @@ const db = introspect.postgresql({
   },
 })
 
+const wordServer = introspect.openApi({
+  apiNamespace: 'wordServer',
+  source: {
+    kind: 'file',
+    filePath: 'server.yaml',
+  },
+  introspection: {
+    pollingIntervalSeconds: 5,
+  },
+})
+
 const myApplication = new Application({
   name: 'api',
-  apis: [db],
+  apis: [db, wordServer],
 })
 
 configureWunderGraphApplication({

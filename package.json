@@ -8,7 +8,7 @@
   },
   "packageManager": "yarn@1.22.10",
   "scripts": {
-    "project": "yarn database && wait-on -d 500 tcp:54322 && yarn migrate init && concurrently \"yarn dev\" \"yarn wundergraph\" \"yarn open\"",
+    "project": "yarn database && wait-on -d 500 tcp:54322 && yarn migrate init && concurrently \"yarn dev\" \"yarn wundergraph\" \"yarn open\" \"yarn server\"",
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
@@ -17,6 +17,7 @@
     "wunderctl": "wunderctl",
     "database": "cd database && docker-compose up -d",
     "migrate": "prisma format && prisma migrate dev --name",
+    "server": "cd server && go run .",
     "open": "wait-on -d 500 http://localhost:3000 && wait-on -d 500 http://localhost:9991 && open-cli http://localhost:3000",
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -30,7 +31,6 @@
     "date-fns": "^2.29.2",
     "graphql": "^16.3.0",
     "next": "^12.1.6",
-    "random-words": "^1.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.4.0"

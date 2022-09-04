@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: 'Word Server'
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:5001'
+paths:
+  /words/{count}:
+    get:
+      summary: 'Get a list of words'
+      description: 'Get a list of words'
+      operationId: 'get_words'
+      parameters:
+        - name: 'count'
+          in: 'path'
+          description: 'Number of words to return'
+          required: true
+          schema:
+            type: 'integer'
+            format: 'int32'
+      responses:
+        '200':
+          description: 'A list of words'
+          content:
+            application/json:
+              schema:
+                type: 'array'
+                items:
+                  type: 'string'
+        '400':
+          description: 'Invalid count supplied'
+  /paragraph:
+    get:
+      summary: 'Get a paragraph'
+      description: 'Get a paragraph'
+      operationId: 'get_paragraph'
+      parameters:
+        - name: 'sentenceCount'
+          in: 'query'
+          description: 'Number of sentences to return'
+          required: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+      responses:
+        '200':
+          description: 'A paragraph'
+          content:
+            application/json:
+              schema:
+                type: 'string'
+        '400':
+          description: 'Invalid count supplied'
