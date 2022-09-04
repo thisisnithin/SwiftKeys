@@ -1,9 +1,9 @@
 mutation (
-  $accuracy: Float!
+  $accuracy: Int!
   $wpm: Int!
   $correct: Int!
   $wrong: Int!
-  $email: String! @fromClaim(name: EMAIL)
+  $userId: String! @fromClaim(name: USERID)
   $time: Int!
 ) {
   db_createOneResults(
@@ -13,7 +13,7 @@ mutation (
       correct: $correct
       wrong: $wrong
       time: $time
-      User: { connect: { email: $email } }
+      User: { connect: { id: $userId } }
     }
   ) {
     id
