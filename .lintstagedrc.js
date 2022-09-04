@@ -9,10 +9,14 @@ const buildEslintCommand = async filenames => {
         return eslint.isPathIgnored(file)
       })
     )
-    return `next lint --fix --file ${filenames
-      .filter((_, i) => !isIgnored[i])
-      .map(f => path.relative(process.cwd(), f))
-      .join(' --file ')}`
+    const notIsIgnored = filenames.filter((_, i) => !isIgnored[i])
+    if (notIsIgnored.length === 0) {
+      return 'next lint --fix'
+    } else {
+      return `next lint --fix --file ${notIsIgnored
+        .map(f => path.relative(process.cwd(), f))
+        .join(' --file ')}`
+    }
   } catch (e) {
     console.error(e)
   }
