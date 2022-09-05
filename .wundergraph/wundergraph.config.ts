@@ -28,6 +28,7 @@ const wordServer = introspect.openApi({
   introspection: {
     pollingIntervalSeconds: 5,
   },
+  baseURL: new EnvironmentVariable('WORD_SERVER_BASE_URL'),
 })
 
 const myApplication = new Application({
