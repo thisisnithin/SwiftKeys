@@ -6,6 +6,10 @@
 
 An app to test out your typing speed, save your progress and view statistics against them.
 
+### Demo
+
+Check out the quick demo [here.](https://www.loom.com/share/03233bdf03dd45e0bd50a8d0a323b399)
+
 ## Getting Started
 
 1. Clone the project.

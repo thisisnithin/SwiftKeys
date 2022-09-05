@@ -111,12 +111,16 @@ const Stats = () => {
                   <tr>
                     <td>
                       {(result.status === 'ok' &&
-                        result.data.db_aggregateResults._max?.wpm) ??
+                        result.data.db_aggregateResults._max?.wpm?.toPrecision(
+                          2
+                        )) ??
                         0}
                     </td>
                     <td>
                       {(result.status === 'ok' &&
-                        result.data.db_aggregateResults._max?.accuracy) ??
+                        result.data.db_aggregateResults._max?.accuracy?.toFixed(
+                          2
+                        )) ??
                         0}
                       %
                     </td>
@@ -136,7 +140,9 @@ const Stats = () => {
                   <tr>
                     <td>
                       {(result.status === 'ok' &&
-                        result.data.db_aggregateResults._avg?.wpm) ??
+                        result.data.db_aggregateResults._avg?.wpm?.toPrecision(
+                          2
+                        )) ??
                         0}
                     </td>
                     <td>
@@ -157,10 +163,10 @@ const Stats = () => {
                 15 seconds <br /> {stats.fifteen?._count._all ?? 0} tests
               </small>
               <h2 className='text-lg text-white'>
-                {stats.fifteen?._avg?.wpm.toPrecision(2) ?? '-'}
+                {stats.fifteen?._avg?.wpm?.toPrecision(2) ?? '-'}
               </h2>
               <h2 className='text-lg text-white'>
-                {stats.fifteen?._avg?.accuracy.toFixed(2) ?? '-'}
+                {stats.fifteen?._avg?.accuracy?.toFixed(2) ?? '-'}
                 {stats.fifteen?._avg?.accuracy && '%'}
               </h2>
             </div>
@@ -169,10 +175,10 @@ const Stats = () => {
                 30 seconds <br /> {stats.thirty?._count._all ?? 0} tests
               </small>
               <h2 className='text-lg text-white'>
-                {stats.thirty?._avg?.wpm.toPrecision(2) ?? '-'}
+                {stats.thirty?._avg?.wpm?.toPrecision(2) ?? '-'}
               </h2>
               <h2 className='text-lg text-white'>
-                {stats.thirty?._avg?.accuracy.toPrecision(2) ?? '-'}
+                {stats.thirty?._avg?.accuracy?.toFixed(2) ?? '-'}
                 {stats.thirty?._avg?.accuracy && '%'}
               </h2>
             </div>
@@ -181,10 +187,10 @@ const Stats = () => {
                 45 seconds <br /> {stats.fortyFive?._count._all ?? 0} tests
               </small>
               <h2 className='text-lg text-white'>
-                {stats.fortyFive?._avg?.wpm.toPrecision(2) ?? '-'}
+                {stats.fortyFive?._avg?.wpm?.toPrecision(2) ?? '-'}
               </h2>
               <h2 className='text-lg text-white'>
-                {stats.fortyFive?._avg?.accuracy.toFixed(2) ?? '-'}
+                {stats.fortyFive?._avg?.accuracy?.toFixed(2) ?? '-'}
                 {stats.fortyFive?._avg?.accuracy && '%'}
               </h2>
             </div>
@@ -193,10 +199,10 @@ const Stats = () => {
                 60 seconds <br /> {stats.sixty?._count._all ?? 0} tests
               </small>
               <h2 className='text-lg text-white'>
-                {stats.sixty?._avg?.wpm.toPrecision(2) ?? '-'}
+                {stats.sixty?._avg?.wpm?.toPrecision(2) ?? '-'}
               </h2>
               <h2 className='text-lg text-white'>
-                {stats.sixty?._avg?.accuracy.toFixed(2) ?? '-'}
+                {stats.sixty?._avg?.accuracy?.toFixed(2) ?? '-'}
                 {stats.sixty?._avg?.accuracy && '%'}
               </h2>
             </div>
