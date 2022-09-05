@@ -18,7 +18,7 @@
     "database": "cd database && docker-compose up -d",
     "migrate": "prisma format && prisma migrate dev --name",
     "server": "cd server && go run .",
-    "open": "wait-on -d 500 http://localhost:3000 && wait-on -d 500 http://localhost:9991 && open-cli http://localhost:3000",
+    "open": "wait-on http://localhost:3000 && wait-on http://localhost:9991 && wait-on http-get://127.0.0.1:5001/health && open-cli http://localhost:3000",
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "next lint --fix"

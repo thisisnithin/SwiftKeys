@@ -15,9 +15,7 @@ An app to test out your typing speed, save your progress and view statistics aga
    ```bash
    NODE_ENV =
    NEXT_PUBLIC_URL =
-   DATABASE_URL =
-   GOOGLE_CLIENT_ID =
-   GOOGLE_CLIENT_SECRET =
+   DATABASE_URL =health
    ```
 
 3. Install the dependencies and run the complete project (nextjs, wundergraph, go server, database) using the below command:
@@ -28,10 +26,10 @@ An app to test out your typing speed, save your progress and view statistics aga
 
 ## What's inside?
 
-`nextjs` - Frontend framework used to build what you see
+`nextjs` - Frontend framework used to build what you see (PORT 3000)
 <br/>
-`server` - Go server to generate random words and sentences
+`server` - Go server to generate random words and sentences (PORT 5001)
 <br />
-`wundergraph` - GraphQL api platform
+`wundergraph` - GraphQL api platform (PORT 9991)
 <br />
-`database` - Postgres database
+`database` - Postgres database (PORT 5432)
