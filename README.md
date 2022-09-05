@@ -19,7 +19,9 @@ Check out the quick demo [here.](https://www.loom.com/share/03233bdf03dd45e0bd50
    ```bash
    NODE_ENV =
    NEXT_PUBLIC_URL =
-   DATABASE_URL =health
+   DATABASE_URL =
+   GOOGLE_CLIENT_ID =
+   GOOGLE_CLIENT_SECRET =
    ```
 
 3. Install the dependencies and run the complete project (nextjs, wundergraph, go server, database) using the below command:
