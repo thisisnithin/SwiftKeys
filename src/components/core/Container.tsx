@@ -5,9 +5,8 @@ const Container = props => {
   const { children, ...customMeta } = props
   const router = useRouter()
   const meta = {
-    title: 'Incredible | Developer videos made easy.',
-    description:
-      'A collaborative developer video content creation platform that enables you to become the best dev video creator.',
+    title: 'SwiftKeys',
+    description: 'Test out your typing speed!',
     type: 'website',
     ...customMeta,
   }
